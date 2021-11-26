@@ -1,0 +1,29 @@
+{
+  "name": "jsconf-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "check-types": "tsc",
+    "prepare": "npx husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jitt3/jsconf-challenge.git"
+  },
+  "keywords": [
+    "JSconf",
+    "challenge"
+  ],
+  "author": "jitt3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jitt3/jsconf-challenge/issues"
+  },
+  "homepage": "https://github.com/jitt3/jsconf-challenge#readme",
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "typescript": "^4.5.2"
+  }
+}
