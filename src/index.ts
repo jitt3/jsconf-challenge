@@ -24,3 +24,12 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+const sort = (arr: number[]): number[] =>
+  arr
+    .map((n) => String(n).split("").map(Number))
+    .sort(
+      (a, b) => a.reduce((s, n) => +s + n, 0) - b.reduce((s, n) => +s + n, 0)
+    )
+    .map((nums) => +nums.join(""));
+
+console.log(sort([100,180,90,56,65,74,68,86,99]))
