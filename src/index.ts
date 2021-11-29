@@ -25,6 +25,24 @@ Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
 
+function getWeight(str: string) {
+  return [...str].reduce((acc, i) => acc + Number(i), 0)
+}
+
+function weightSorter(a: string, b: string): number {
+  const weightA = getWeight(a)
+  const weightB = getWeight(b)
+
+  if (weightA === weightB) {
+    return a.localeCompare(b)
+  }
+
+  return weightA - weightB
+}
+
 export default function orderByWeight(str: string): string {
   return str
+    .split(' ')
+    .sort(weightSorter)
+    .join(' ')
 }
