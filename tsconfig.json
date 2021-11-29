@@ -4,7 +4,9 @@
     "allowJs": false,
     "strict": true,
     "baseUrl": "./src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "moduleResolution": "Node"
   },
   "include": ["src/**/*"]
 }
