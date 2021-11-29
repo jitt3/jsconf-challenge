@@ -24,3 +24,55 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+
+
+
+const listNumbers = "56 65 74 100 99 68 86 180 90".split(" ");
+//const listNumbers = [];
+const listNumbersOrderByweight = [];
+
+
+
+if(listNumbers.length > 0){
+
+  
+    for (let i = 0; i < listNumbers.length; i++) {
+      let weight = 0;
+      for (let j = 0; j < listNumbers[i].length; j++) {
+          let  value = listNumbers[i].charAt(j);
+          weight = weight + parseInt(value);
+      }
+      listNumbersOrderByweight.push({id: i, weightNumber:  weight, weightOriginal: listNumbers[i]});
+      weight = 0;
+      
+    }
+
+    console.log(listNumbersOrderByweight);
+
+
+
+    listNumbersOrderByweight.sort(function (a, b) {
+      if (a.weightNumber > b.weightNumber) {
+        return 1;
+      }
+      if (a.weightNumber < b.weightNumber) {
+        return -1;
+      }
+      return 0;
+    });
+
+
+    console.log(listNumbersOrderByweight);
+
+    let listNumbersOut = "";
+
+    listNumbersOrderByweight.forEach(element => {
+    //console.log(element.weightOriginal);
+      listNumbersOut+= element.weightOriginal+ " ";
+    });
+
+    console.log(listNumbersOut);
+  
+}else{
+  console.log("La lista esta vacia..");
+}
