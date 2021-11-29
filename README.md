@@ -40,3 +40,9 @@ npm install
 ## Tech Stack
 
 - Typescript
+
+
+## How to run the challenge?
+```bash
+npm run go
+```

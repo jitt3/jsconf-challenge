@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc --build",
     "check-types": "tsc",
-    "prepare": "npx husky install"
+    "prepare": "npx husky install",
+    "go": "npm run build && node dist/index.js"
   },
   "repository": {
     "type": "git",
