@@ -25,6 +25,11 @@ Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
 
+/**
+ * ToDo: Los tests me faltaron por falta de tiempo :C
+ * 
+ */
+
 import * as helper from './helper';
 
 const numbers: string = '56 65 74 100 99 68 86 180 90';
