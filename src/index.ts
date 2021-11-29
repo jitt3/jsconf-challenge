@@ -24,3 +24,29 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+
+const weightOf = (numberStr: string): number =>numberStr.split("").reduce<number>((acc, digit) => acc + +digit, 0);
+
+const compareByWeight = (a: string, b: string): number => {
+
+    const aW = weightOf(a);
+    const bW = weightOf(b);
+    
+
+    if (aW > bW) {
+        return 1;
+    }
+    
+    if (bW > aW) {
+        return -1;
+    }
+    
+    if (aW === bW) {
+        return a > b ? 1 : -1;
+    }
+
+    return 0;
+}
+
+export const sortByWeight = (numberListSrt: string): string => numberListSrt.split(" ").sort(compareByWeight).join(" ");
+
