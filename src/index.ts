@@ -24,3 +24,12 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+
+import * as helper from './helper';
+
+const numbers: string = '56 65 74 100 99 68 86 180 90';
+const arrayOfNumbers = helper.getArrayFromString(numbers);
+const weigths = helper.getWeights(arrayOfNumbers);
+
+helper.sortWeights(weigths);
+helper.printWeights(weigths);

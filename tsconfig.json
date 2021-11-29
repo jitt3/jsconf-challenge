@@ -4,7 +4,8 @@
     "allowJs": false,
     "strict": true,
     "baseUrl": "./src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "module": "commonjs", 
   },
   "include": ["src/**/*"]
 }
