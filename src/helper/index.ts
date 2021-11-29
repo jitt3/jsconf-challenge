@@ -12,6 +12,15 @@ const getWeight = (number: string): number => {
     .reduce((tmpSum, value) => tmpSum + value);
 };
 
+// Public Functions
+const getArrayFromString = (numbers: string): string[] => {
+  return numbers.split(' ');
+};
+
+const getWeights = (numbers: string[]): weight[] => {
+  return numbers.map(number => ( {number: number, weigth: getWeight(number)}));
+}
+
 const sortWeights = (weigths: weight[]) => {
   weigths.sort((a, b) => {
     if (a.weigth > b.weigth) {
@@ -33,15 +42,6 @@ const sortWeights = (weigths: weight[]) => {
     return 0;
   });
 };
-
-// Public Functions
-const getArrayFromString = (numbers: string): string[] => {
-  return numbers.split(' ');
-};
-
-const getWeights = (numbers: string[]): weight[] => {
-  return numbers.map(number => ( {number: number, weigth: getWeight(number)}));
-}
 
 const printWeights = (weigths: weight[]): void => console.log( weigths.map(weigth => weigth.number).join(' ') );
 
