@@ -24,3 +24,21 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+
+const getIntegerWeight = (integer: string): number =>
+  integer.split("").reduce((acc, curr) => Number(acc) + Number(curr), 0);
+
+const orderListByWeight = (list: string): string =>
+  list
+    .split(" ")
+    .sort((a, b) => getIntegerWeight(a) - getIntegerWeight(b))
+    .join(" ");
+  
+// Tests
+if(orderListByWeight('56 65 74 100 99 68 86 180 90') === "100 180 90 56 65 74 68 86 99") {
+  console.log('PASSED: should order the elements properly')
+}
+
+if(orderListByWeight('') === "") {
+  console.log('PASSED: should return an empty string if its passed as param')
+}
