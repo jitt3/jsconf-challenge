@@ -4,7 +4,15 @@
     "allowJs": false,
     "strict": true,
     "baseUrl": "./src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "moduleResolution": "Node",
+    "esModuleInterop": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "ts-node": {
+    "moduleTypes": {
+      "jest.config.ts": "cjs",//this is to avoid module types conflict when running test environment and dev environment
+      // Globs are also spported with the same behavior as tsconfig "include"
+    }
+  }
 }

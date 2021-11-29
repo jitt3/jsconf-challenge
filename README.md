@@ -2,10 +2,10 @@
 
 ##
 
-- Create a branch with the following structure for the name `feature/yourname`.
-- Inside the `index.ts` file, you will find the challenge's instructions.
-- it would be awesome if you add some test cases for your algorithm.
-- Once you finish the challenge, create a pull request and wait for the results.
+- Create a branch following the same structure for the name `feature/yourname`
+- Follow the instructions inside the `index.ts` file
+- it would be awesome if you add some test cases for you algorithm.
+- Once you finish the challenge, create a pull request
 
 ## Requirements
 

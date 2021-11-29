@@ -1,4 +1,14 @@
 /*
+    Fecha: 29 de Noviembre del 2021
+    Autor: armando serrato barrera (rsb987@hotmail.com), github: elarmando
+
+    El siguiente código es la solución al reto propuesto en la conferencia de jsconf 2021, nextiva challenge
+        https://docs.google.com/forms/d/e/1FAIpQLSfszG0CSnofNJQv2CjkRGp9XGJ4-AiUYMh-ZOJt0DJkWh-gwA/formResponse
+        https://github.com/jitt3/jsconf-challenge
+*/
+
+
+/*
 Te hemos proporcionado un string que contiene una lista de enteros  positivos
 separados por un espacio cada uno(" ")
 Toma cada valor y calcula la soma de sus digitos, y lo llamaremos "weight".
@@ -24,3 +34,6 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+
+import solver from './solver.js'
+console.log(solver("56 65 74 100 99 68 86 180 90"));
