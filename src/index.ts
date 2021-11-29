@@ -9,8 +9,8 @@ Tomemos el siguiente ejemplo:
 el número 99 tendra un "weight" de 18, mientras que 100 tendra un "weight" de 1
 de esta manera el numero 100 debera ir antes de 99
 
-Input 
-"56 65 74 100 99 68 86 180 90" 
+Input
+"56 65 74 100 99 68 86 180 90"
 
 Output
 "100 180 90 56 65 74 68 86 99"
@@ -24,3 +24,7 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+
+export default function orderByWeight(str: string): string {
+  return str
+}
