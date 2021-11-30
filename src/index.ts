@@ -24,3 +24,8 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+const index = function (): boolean {
+    return true
+}
+
+export default index
