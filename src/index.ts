@@ -24,3 +24,72 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+
+// Solution to the challenge, refer to index.test.ts to review execution
+function orderNumbersByWeight(numbersList: string): string {
+    const SEPARATOR = ' ';
+
+    const numbers = numbersList.split(SEPARATOR);
+    const numbersByWeight = mapAllNumbersByWeight(numbers);
+
+    const sortedWeights = sortWeights(numbersByWeight.keys());
+
+    const orderedNumbers = getOrderedNumbers(numbersByWeight, sortedWeights);
+
+    return orderedNumbers.join(SEPARATOR);
+}
+
+function mapAllNumbersByWeight(numbers: string[]): Map<number, string[]> {
+    const numbersByWeight = numbers.reduce((numbersByWeight, number) => {
+        const weight = getNumberWeight(number);
+
+        if (numbersByWeight.has(weight)) {
+            const previousNumbers = numbersByWeight.get(weight);
+            const numbersOfThisWeight = [...previousNumbers, number].sort();
+
+            numbersByWeight.set(weight, numbersOfThisWeight); // alphabetically sorts numbers
+        } else numbersByWeight.set(weight, [number]);
+
+        return numbersByWeight;
+    }, new Map());
+
+    return numbersByWeight;
+}
+
+// Given a number string '52' calculates the sum of its digits
+function getNumberWeight(number: string): number {
+    const DEFAULT_WEIGHT = 0;
+    const digits = number.split(''); // Converts string into array of digits
+
+    // Converts each digit to Number and accumulates it
+    const weight = digits.reduce(
+        (currentWeight, digit) => currentWeight + Number(digit),
+        DEFAULT_WEIGHT
+    );
+
+    return weight;
+}
+
+
+function sortWeights(weights: IterableIterator<number>): number[] {
+    const unorderedWeights = Array.from(weights);
+
+    return unorderedWeights.sort((a, b) => a - b); // Numerically sorts array
+}
+
+function getOrderedNumbers(
+    numbersByWeight: Map<number, string[]>,
+    sortedWeights: number[]
+): string[] {
+    const orderedNumbers: string[] = [];
+
+    sortedWeights.forEach((weight) => {
+        const weightNumbers = numbersByWeight.get(weight);
+
+        if (weightNumbers) orderedNumbers.push(...weightNumbers);
+    });
+
+    return orderedNumbers;
+}
+
+export { orderNumbersByWeight, getNumberWeight };
