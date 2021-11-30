@@ -24,3 +24,33 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+class NumberWeight {
+    constructor(public Number: string, public Weight: number) {}
+  }
+  
+  const input = "56 65 74 100 99 68 86 180 90";
+  
+  const numbersArray = input.split(" ");
+  
+  const numbersWeight = numbersArray.map((number) => {
+    let weight = 0;
+    for (let i = 0; i < number.length; i++) {
+      weight += Number(number[i]);
+    }
+    return new NumberWeight(number.toString(), weight);
+  });
+  
+  numbersWeight.sort((a, b) => {
+    if (a.Weight > b.Weight) {
+      return 1;
+    } else if (a.Weight < b.Weight) {
+      return -1;
+    } else {
+      return a.Number.localeCompare(b.Number);
+    }
+  });
+  
+  const output = numbersWeight.map((number) => number.Number).join(" ");
+  
+  console.log(output);
+  
