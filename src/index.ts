@@ -24,3 +24,46 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+interface GenericObject {
+    key: string;
+    weight: number;
+}
+
+function orderString(a: GenericObject, b: GenericObject): number {
+    if (a.weight === b.weight) {
+        return a.key.toString() > b.key.toString() ? 1 : -1;
+    } else {
+        return a.weight - b.weight;
+    }
+}
+
+function parseFunction(stringProcess: string): string {
+    return stringProcess
+        .split(" ")
+        .map((val) => {
+            let weight = val
+                .split("")
+                .map((val) => Number(val))
+                .reduce((prev: number, curr: number) => prev + curr, 0);
+            return { key: val, weight: weight };
+        })
+        .sort(orderString)
+        .map((obj) => obj.key)
+        .join(" ");
+}
+  
+  let defualtString: string = "56 65 74 100 99 68 86 180 90";
+  let result = parseFunction(defualtString);
+  console.log(result);
+  
+  defualtString = "";
+  result = parseFunction(defualtString);
+  console.log(result);
+  
+  defualtString = "111 111 22 12 32 23";
+  result = parseFunction(defualtString);
+  console.log(result);
+  
+  defualtString = "0 1 2 3 3 2 1 0";
+  result = parseFunction(defualtString);
+  console.log(result);
