@@ -30,7 +30,7 @@ Nota: todos los números de la lista son positivos y la lista puede estar vacia.
  * 
  */
 
-import * as helper from './helper';
+import * as helper from './helpers';
 
 const numbers: string = '56 65 74 100 99 68 86 180 90';
 const arrayOfNumbers = helper.getArrayFromString(numbers);

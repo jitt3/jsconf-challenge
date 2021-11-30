@@ -7,5 +7,5 @@
     "outDir": "dist",
     "module": "commonjs", 
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "tests"]
 }
