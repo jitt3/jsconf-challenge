@@ -30,11 +30,11 @@ Nota: todos los números de la lista son positivos y la lista puede estar vacia.
  * 
  */
 
-import * as helper from './helpers';
+import * as helpers from './helpers';
 
 const numbers: string = '56 65 74 100 99 68 86 180 90';
-const arrayOfNumbers = helper.getArrayFromString(numbers);
-const weigths = helper.getWeights(arrayOfNumbers);
+const arrayOfNumbers = helpers.getArrayFromString(numbers);
+const weigths = helpers.getWeights(arrayOfNumbers);
 
-helper.sortWeights(weigths);
-helper.printWeights(weigths);
+helpers.sortWeights(weigths);
+helpers.printWeights(weigths);

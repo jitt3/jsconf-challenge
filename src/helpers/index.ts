@@ -45,9 +45,12 @@ const sortWeights = (weigths: weight[]) => {
 
 const printWeights = (weigths: weight[]): void => console.log( weigths.map(weigth => weigth.number).join(' ') );
 
+const getWeightsString = (weigths: weight[]): string =>  weigths.map(weigth => weigth.number).join(' ');
+
 export {
   getArrayFromString,
   getWeights,
   sortWeights,
-  printWeights
+  printWeights,
+  getWeightsString
 };
