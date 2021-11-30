@@ -44,5 +44,6 @@ npm install
 
 ## How to run the challenge?
 ```bash
-npm run go
+npm run go   // or
+npm run test // if you want to run jasmine tests
 ```
