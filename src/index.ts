@@ -1,26 +1,55 @@
-/*
-Te hemos proporcionado un string que contiene una lista de enteros  positivos
-separados por un espacio cada uno(" ")
-Toma cada valor y calcula la soma de sus digitos, y lo llamaremos "weight".
-Debes de regresar como resultado la lista en orden ascendente por "weight",
-como un string y separados por un espacio
+// CHALLENGE
+// Use Typescript to solve the following challenge:
 
-Tomemos el siguiente ejemplo:
-el número 99 tendra un "weight" de 18, mientras que 100 tendra un "weight" de 1
-de esta manera el numero 100 debera ir antes de 99
+// You are provided a string containing a list of positive integers separated by a space (" ").
+// Take each value and calculate the sum of its digits, which we call it's "weight".
+// Then return the list in ascending order by weight, as a string joined by a space.
 
-Input 
-"56 65 74 100 99 68 86 180 90" 
+// For example: 99 will have "weight" 18, 100 will have "weight"
+// 1 so in the output 100 will come before 99.
 
-Output
-"100 180 90 56 65 74 68 86 99"
+// Example:
+// "56 65 74 100 99 68 86 180 90" ordered by numbers weights becomes: "100 180 90 56 65 74 68 86 99"
 
-Cuando dos numeros tengan el mismo "weight", consideralos como string en lugar de números:
-Por ejemplo
-El número 100 deber ir antes de 180 porque su "weight" (1) es menor que el de 180 (9)
-y 180 va antes de 90 pues como tienen el mismo "weight" que es 9, si es  tomado como string
-entonces debe ir antes.
+// When two numbers have the same "weight", let's consider them to be strings and not numbers:
+// 100 is before 180 because its "weight" (1) is less than the one of 180 (9)
+// and 180 is before 90 since, having the same "weight" (9) it comes before as a string.
 
-Nota: todos los números de la lista son positivos y la lista puede estar vacia.
+// All numbers in the list are positive integers and the list can be empty.
 
-*/
+// -------------------------------------------------------------------------------------------------------
+
+interface NumberAndWeight {
+  number: number;
+  weight: number;
+}
+
+export function sortNumbersByWeight(inputList: string): string {
+  // If list is an empty string, simply return an empty string
+  if (!inputList) return '';
+
+  // Get array of numbers (as strings) by splitting the `inputList` string by space (' ')
+  const numbers = inputList.split(' ');
+
+  // Map the `numbers` array to an array of `NumberAndWeight` objects
+  const numberAndWeightMappings: NumberAndWeight[] = numbers.map((numStr) => ({
+    number: parseInt(numStr),
+    weight: numStr.split('').reduce((acc, digit) => acc + parseInt(digit), 0),
+  }));
+
+  const sortedMappings = numberAndWeightMappings.sort((a, b) => {
+    const difference = a.weight - b.weight;
+
+    // Weight of both `a` and `b` objects is equal, so compare as strings
+    if (difference === 0) {
+      // Perform a lexicographical comparison
+      // If `a` is less than `b`, return -1, meaning that `a` comes before `b`
+      // Else, return 1, meaning that `a` comes after `b`
+      return a.number.toString() < b.number.toString() ? -1 : 1;
+    }
+
+    return difference;
+  });
+
+  return sortedMappings.map((m) => m.number).join(' ');
+}
