@@ -24,3 +24,18 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+import { GetWeight, OrderByWeight } from './index.d'
+
+export const getWeight: GetWeight = num =>
+  num.split('').reduce((a, b) => a + Number(b), 0)
+
+export const orderByWeight: OrderByWeight = list =>
+  list
+    .split(' ')
+    .sort((a, b) => {
+      const aWeight = getWeight(a)
+      const bWeight = getWeight(b)
+
+      return aWeight === bWeight ? a.localeCompare(b) : aWeight - bWeight
+    })
+    .join(' ')
