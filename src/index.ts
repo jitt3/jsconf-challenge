@@ -24,3 +24,23 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+var lista = "56 65 74 100 99 68 86 180 90";
+var listaDividida = lista.split(" ");
+var listaOrdenada;
+var peso = 0;
+var map = new Map();
+listaDividida.forEach(function(number){
+    for(let index=0;index<number.length;index++){
+        peso = parseInt(number[index]) + peso;
+        
+    }
+    map.set(number,peso);
+    peso=0;
+ 
+});
+var mapOrdenado = new Map(Array.from(map).sort((a,b) => {
+    return  a[1] - b[1];
+}));
+listaOrdenada = Array.from(mapOrdenado.keys());
+lista = listaOrdenada.join(',').replace(/,/g, ' ').toString();
+console.log(lista);
