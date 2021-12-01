@@ -29,7 +29,7 @@ describe('Nextiva challenge - JS Conf Mexico', () => {
         expect(result).toBeGreaterThan(expected)
       });
   
-      it('returns a negative number ifthe second string has greater weight', () => {
+      it('returns a negative number if the second string has greater weight', () => {
         const expected: number = 0
         const result: number = compareWeight('65', '57')
         expect(result).toBeLessThan(expected)
@@ -59,9 +59,7 @@ describe('Nextiva challenge - JS Conf Mexico', () => {
         const array: string[] = ['33', '100', '180', '90', '54']
         const expected: string = '100 33 180 54 90'
         const result: string = getSortedListByWeight(array)
-  
         expect(result).toEqual(expected)
       });
     })
   });
-  

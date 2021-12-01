@@ -18,7 +18,6 @@ describe('Nextiva challenge - JS Conf Mexico', () => {
       const list: string = '9'
       const expected: string = '9'
       const result: string = sortListByWeight(list)
-
       expect(result).toEqual(expected)
     });
 
@@ -26,7 +25,6 @@ describe('Nextiva challenge - JS Conf Mexico', () => {
       const list: string = ''
       const expected: string = ''
       const result: string = sortListByWeight(list)
-
       expect(result).toEqual(expected)
     });
   })
