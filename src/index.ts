@@ -24,3 +24,36 @@ entonces debe ir antes.
 Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
+
+function orderByWeight(list: number[]): number[] {
+  const orderedList = [...list].sort((a, b) => {
+    const weightA = getNumberWeight(a);
+    const weightB = getNumberWeight(b);
+    if (weightA === weightB) {
+      const strA = String(a);
+      const strB = String(b);
+      return compare(strA, strB);
+    }
+    return compare(weightA, weightB);
+  });
+
+  return orderedList;
+}
+
+function compare(a: number | string, b: number | string) {
+  if (a === b) {
+    return 0;
+  } else if (a > b) {
+    return 1;
+  }
+  return -1;
+}
+
+function getNumberWeight(int: number) {
+  const intStr = String(int);
+  let weigth = 0;
+  for (let i = 0; i < intStr.length; i++) {
+    weigth += Number(intStr[i]);
+  }
+  return weigth;
+}
