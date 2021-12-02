@@ -1,4 +1,4 @@
-import { getOrderedNumbersByWeight } from "../src/index";
+import { getOrderedNumbersByWeight } from "../src/getOrderedNumbersByWeight";
 
 describe("getOrderedNumbersByWeight", () => {
   test("Example provided", () => {

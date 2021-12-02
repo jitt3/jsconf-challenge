@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "target": "es2020",
+    "moduleResolution": "node",    
     "allowJs": false,
     "strict": true,
-    "baseUrl": "./src",
-    "outDir": "dist"
+    "baseUrl": "./src",    
+    "outDir": "dist",    
   },
-  "include": ["src/**/*", "babel.config.js"]
+  "include": ["src/**/*", "babel.config.js"],
+  "exclude": ["node_modules", "**/*.test.ts"]
 }

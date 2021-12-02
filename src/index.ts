@@ -9,8 +9,8 @@ Tomemos el siguiente ejemplo:
 el número 99 tendra un "weight" de 18, mientras que 100 tendra un "weight" de 1
 de esta manera el numero 100 debera ir antes de 99
 
-Input 
-"56 65 74 100 99 68 86 180 90" 
+Input
+"56 65 74 100 99 68 86 180 90"
 
 Output
 "100 180 90 56 65 74 68 86 99"
@@ -25,46 +25,20 @@ Nota: todos los números de la lista son positivos y la lista puede estar vacia.
 
 */
 
-interface NumberWeight {
-  number: string;
-  weight: number;
-}
+import { Command } from "commander";
+import { getOrderedNumbersByWeight } from "getOrderedNumbersByWeight";
 
-export function getOrderedNumbersByWeight(input: string): string {
-  const strNumbers: string[] = parseStringToArray(input);
+const program = new Command().requiredOption(
+  "-n, --numbers <numbers>",
+  "String containing list of positive integers separated by space each one"
+);
 
-  const numbersWeight: NumberWeight[] = mapToNumberWeight(strNumbers);
+program.parse(process.argv);
 
-  const orderedByWeightAsc: NumberWeight[] =
-    orderByWeightAscendant(numbersWeight);
+const options = program.opts();
 
-  return orderedByWeightAsc.map((elem) => elem.number).join(" ");
-}
+const input = options.numbers;
+const output = getOrderedNumbersByWeight(input);
 
-function parseStringToArray(input: string): string[] {
-  return input.split(" ");
-}
-
-function orderByWeightAscendant(numbersWeight: NumberWeight[]): NumberWeight[] {
-  return numbersWeight.sort((a, b) => {
-    if (a.weight !== b.weight) {
-      return a.weight - b.weight;
-    }
-    if (a.number > b.number) {
-      return 1;
-    }
-    if (a.number < b.number) {
-      return -1;
-    }
-    return 0;
-  });
-}
-function mapToNumberWeight(strNumbers: string[]): NumberWeight[] {
-  return strNumbers.map((strNumber: string) => ({
-    number: strNumber,
-    weight: calculateWeigth(strNumber),
-  }));
-}
-function calculateWeigth(strNumber: string): number {
-  return strNumber.split("").reduce((total, number) => total + +number, 0);
-}
+console.log("INPUT: ", input);
+console.log("OUTPUT: ", output);
