@@ -38,7 +38,12 @@ program.parse(process.argv);
 const options = program.opts();
 
 const input = options.numbers;
-const output = getOrderedNumbersByWeight(input);
+try {
+  const output = getOrderedNumbersByWeight(input);
 
-console.log("INPUT: ", input);
-console.log("OUTPUT: ", output);
+  console.log("INPUT: ", input);
+  console.log("OUTPUT: ", output);
+} catch (err) {
+  const error = err as Error;
+  console.error("ERROR", error.message);
+}

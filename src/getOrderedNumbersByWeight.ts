@@ -1,7 +1,11 @@
 import { NumberWeight } from "NumberWeight";
 
 export function getOrderedNumbersByWeight(input: string): string {
+  if (!input) return "";
+
   const strNumbers: string[] = parseStringToArray(input);
+
+  ensureInputAreIntegerPositiveList(strNumbers);
 
   const numbersWeight: NumberWeight[] = mapToNumberWeight(strNumbers);
 
@@ -35,4 +39,14 @@ function mapToNumberWeight(strNumbers: string[]): NumberWeight[] {
 }
 function calculateWeigth(strNumber: string): number {
   return strNumber.split("").reduce((total, number) => total + +number, 0);
+}
+
+function ensureInputAreIntegerPositiveList(inputArr: string[]) {
+  const isValidInput = inputArr.every((strNumber: string) => {
+    const number = +strNumber;
+    return !isNaN(number) && number > 0;
+  });
+  if (!isValidInput) {
+    throw new Error("The list must contain only positive integers");
+  }
 }
